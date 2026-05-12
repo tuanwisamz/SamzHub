@@ -9,8 +9,8 @@ const sectionsData = [
     title: 'Performance',
     subtitle: 'Documents, spreadsheets and writing tools to get work done.',
     items: [
-      { name: 'Microsoft Word', url: 'https://www.microsoft365.com/word', isFeatured: true },
-      { name: 'Microsoft Excel', url: 'https://www.microsoft365.com/excel', isFeatured: true },
+      { name: 'Microsoft Word', url: 'https://word.cloud.microsoft/en-us/', isFeatured: true },
+      { name: 'Microsoft Excel', url: 'https://excel.cloud.microsoft/', isFeatured: true },
       { name: 'Google Docs', url: 'https://docs.google.com/', isFeatured: true },
       { name: 'Google Sheets', url: 'https://docs.google.com/spreadsheets', isFeatured: true },
       { name: 'Google Drive', url: 'https://drive.google.com/', isFeatured: true },
@@ -74,10 +74,10 @@ const sectionsData = [
     title: 'Video Generation & Clipper',
     subtitle: 'Stay connected with your community across all platforms.',
     items: [
-      { name: 'Rotgen', url: 'https://web.whatsapp.com/', isFeatured: true },
-      { name: 'Higgsfield', url: 'https://web.telegram.org/', isFeatured: true },
-      { name: 'Kling Motion', url: 'https://www.instagram.com/', isFeatured: true },
-      { name: 'Adobe Express', url: 'https://www.linkedin.com/', isFeatured: true },
+      { name: 'Rotgen', url: 'https://rotgen.org/', isFeatured: true },
+      { name: 'Higgsfield', url: 'https://higgsfield.ai/mcp', isFeatured: true },
+      { name: 'Kling Motion', url: 'https://kling.ai/app/video-motion-control/new', isFeatured: true },
+      { name: 'Adobe Express', url: 'https://www.adobe.com/express/', isFeatured: true },
     ],
   },
   {

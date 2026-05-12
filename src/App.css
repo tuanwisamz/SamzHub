@@ -64,12 +64,6 @@
   border-color: var(--accent-purple);
 }
 
-.custom-card-link:hover .action-arrow {
-  opacity: 1 !important;
-  transform: translateX(4px);
-  transition: all 0.2s ease;
-}
-
 .card-title {
   font-size: 0.95rem;
   font-weight: 600;
@@ -172,10 +166,6 @@
   border-color: var(--accent-purple) !important;
   transform: translateY(-6px) !important;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
-}
-
-.featured-card-link:hover .action-arrow {
-  transform: translateX(6px) !important;
 }
 
 /* Hero CTA Button Hover Effects */

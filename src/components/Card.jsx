@@ -60,17 +60,17 @@ const getToolInfo = (name) => {
 const Card = ({ name, url, isFeatured, isLoading }) => {
   if (isLoading) {
     return (
-      <div className={`card-skeleton mb-4 ${isFeatured ? 'p-4' : 'p-3'}`} style={{ minHeight: isFeatured ? '120px' : '80px' }}>
+      <div className={`card-skeleton mb-4 ${isFeatured ? 'p-4' : 'p-3'}`} style={{ minHeight: isFeatured ? '100px' : '70px' }}>
         <div className="d-flex align-items-center w-100">
           <div className="skeleton-icon" style={{ 
-            width: isFeatured ? '84px' : '64px', 
-            height: isFeatured ? '84px' : '64px', 
+            width: isFeatured ? '64px' : '48px', 
+            height: isFeatured ? '64px' : '48px', 
             flexShrink: 0, 
             borderRadius: '16px' 
           }}></div>
-          <div className={`${isFeatured ? 'ms-5' : 'ms-4'} flex-grow-1`}>
-            <div className="skeleton-text mb-3" style={{ width: '80%', height: isFeatured ? '24px' : '16px' }}></div>
-            <div className="skeleton-text" style={{ width: '40%', height: isFeatured ? '16px' : '12px' }}></div>
+          <div className={`${isFeatured ? 'ms-4' : 'ms-3'} flex-grow-1`}>
+            <div className="skeleton-text mb-3" style={{ width: '80%', height: isFeatured ? '18px' : '14px' }}></div>
+            <div className="skeleton-text" style={{ width: '40%', height: isFeatured ? '12px' : '10px' }}></div>
           </div>
         </div>
       </div>
@@ -85,30 +85,27 @@ const Card = ({ name, url, isFeatured, isLoading }) => {
            style={isFeatured ? { boxShadow: '0 15px 35px -5px rgba(0, 0, 0, 0.1), 0 10px 15px -5px rgba(0, 0, 0, 0.04)' } : {}}>
         
         {/* Icon Square: Left */}
-        <div className={`rounded-4 d-flex align-items-center justify-content-center ${isFeatured ? 'me-5' : 'me-4'}`} style={{ 
-          width: isFeatured ? '84px' : '64px', 
-          height: isFeatured ? '84px' : '64px', 
+        <div className={`rounded-4 d-flex align-items-center justify-content-center ${isFeatured ? 'me-4' : 'me-3'}`} style={{ 
+          width: isFeatured ? '64px' : '48px', 
+          height: isFeatured ? '64px' : '48px', 
           backgroundColor: color,
           flexShrink: 0
         }}>
-          <i className={`bi ${icon} text-white ${isFeatured ? 'fs-1' : 'fs-2'}`}></i>
+          <i className={`bi ${icon} text-white ${isFeatured ? 'fs-3' : 'fs-5'}`}></i>
         </div>
 
         {/* Text Stack: Middle */}
         <div className="flex-grow-1 min-w-0">
           <div className="fw-bold text-truncate" style={{ 
-            fontSize: isFeatured ? '1.5rem' : '1.2rem',
-            color: 'var(--text-main)'
+            fontSize: isFeatured ? '1.2rem' : '1.05rem',
+            color: 'var(--text-main)',
+            letterSpacing: '-0.3px'
           }}>{name}</div>
           <div style={{ 
-            fontSize: isFeatured ? '1.1rem' : '0.9rem',
-            color: 'var(--text-muted)'
+            fontSize: isFeatured ? '0.9rem' : '0.8rem',
+            color: 'var(--text-muted)',
+            opacity: 0.8
           }}>Open in new tab</div>
-        </div>
-
-        {/* Action: Right arrow */}
-        <div className="ms-2 opacity-25 action-arrow">
-          <i className={`bi bi-arrow-right ${isFeatured ? 'fs-3' : 'fs-5'}`} style={{ color: 'var(--text-main)' }}></i>
         </div>
       </div>
     </a>
