@@ -184,15 +184,35 @@ const Header = ({ onSearch }) => {
           }}>
             Explore tools →
           </a>
-          
-          {/* Secondary Button */}
+
+          {/* Second Button */}
+          <a href="#utp-gateways" className={`btn btn-lg px-4 py-2 rounded-pill fw-bold shadow-lg d-flex align-items-center justify-content-center hero-cta-btn ${isDark ? 'bg-white text-dark' : 'bg-white text-dark border'}`} style={{ 
+            fontSize: '1.1rem',
+            transition: 'all 0.3s ease',
+            border: isDark ? 'none' : '1px solid #e2e8f0',
+            textDecoration: 'none'
+          }}>
+            Gateways
+          </a>
+
+          {/* Third Button */}
+          <a href="#social-media" className={`btn btn-lg px-4 py-2 rounded-pill fw-bold shadow-lg d-flex align-items-center justify-content-center hero-cta-btn ${isDark ? 'bg-white text-dark' : 'bg-white text-dark border'}`} style={{ 
+            fontSize: '1.1rem',
+            transition: 'all 0.3s ease',
+            border: isDark ? 'none' : '1px solid #e2e8f0',
+            textDecoration: 'none'
+          }}>
+            Socials
+          </a>
+
+          {/* Fourth Button */}
           <a href="#llms" className={`btn btn-lg px-4 py-2 rounded-pill fw-bold shadow-lg d-flex align-items-center justify-content-center hero-cta-btn ${isDark ? 'bg-white text-dark' : 'bg-white text-dark border'}`} style={{ 
             fontSize: '1.1rem',
             transition: 'all 0.3s ease',
             border: isDark ? 'none' : '1px solid #e2e8f0',
             textDecoration: 'none'
           }}>
-            Jump to AI
+            AIs
           </a>
         </div>
       </div>

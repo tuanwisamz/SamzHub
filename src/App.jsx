@@ -103,6 +103,32 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
+  const [likedIds, setLikedIds] = useState(() => {
+    try {
+      const raw = localStorage.getItem('samzhub_liked_cards');
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? new Set(parsed) : new Set();
+    } catch {
+      return new Set();
+    }
+  });
+
+  const toggleLike = (name) => {
+    setLikedIds(prev => {
+      const next = new Set(prev);
+      if (next.has(name)) {
+        next.delete(name);
+      } else {
+        next.add(name);
+      }
+      try {
+        localStorage.setItem('samzhub_liked_cards', JSON.stringify([...next]));
+      } catch {
+        // silently ignore write failures; in-memory state still works
+      }
+      return next;
+    });
+  };
 
   useEffect(() => {
     // Simulate loading progress illusion
@@ -135,6 +161,10 @@ function App() {
     )
   })).filter(section => section.items.length > 0);
 
+  const likedItems = sectionsData
+    .flatMap(s => s.items)
+    .filter(item => likedIds.has(item.name));
+
   return (
     <div className="app-container">
       {isLoading && (
@@ -145,6 +175,16 @@ function App() {
       <div className="container-fluid py-5 px-md-5">
         <Header onSearch={setSearchQuery} />
         <main>
+          {likedItems.length > 0 && (
+            <Section
+              title="Liked"
+              subtitle="Your favourite tools, all in one place."
+              items={isLoading ? [] : likedItems}
+              isLoading={isLoading}
+              onToggleLike={toggleLike}
+              likedIds={likedIds}
+            />
+          )}
           {filteredSections.map((section, index) => (
             <Section
               key={index}
@@ -152,6 +192,8 @@ function App() {
               subtitle={section.subtitle}
               items={isLoading ? Array(section.items.length).fill({ name: '', url: '', isFeatured: true }) : section.items}
               isLoading={isLoading}
+              onToggleLike={toggleLike}
+              likedIds={likedIds}
             />
           ))}
           {filteredSections.length === 0 && !isLoading && (

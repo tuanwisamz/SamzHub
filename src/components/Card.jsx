@@ -57,7 +57,7 @@ const getToolInfo = (name) => {
   return { color: '#6366f1', icon: 'bi-grid-1x2-fill' };
 };
 
-const Card = ({ name, url, isFeatured, isLoading }) => {
+const Card = ({ name, url, isFeatured, isLoading, isLiked, onToggleLike }) => {
   if (isLoading) {
     return (
       <div className={`card-skeleton mb-4 ${isFeatured ? 'p-4' : 'p-3'}`} style={{ minHeight: isFeatured ? '100px' : '70px' }}>
@@ -95,7 +95,7 @@ const Card = ({ name, url, isFeatured, isLoading }) => {
         </div>
 
         {/* Text Stack: Middle */}
-        <div className="flex-grow-1 min-w-0">
+        <div className="flex-grow-1 min-w-0 pe-4">
           <div className="fw-bold text-truncate" style={{ 
             fontSize: isFeatured ? '1.2rem' : '1.05rem',
             color: 'var(--text-main)',
@@ -107,6 +107,22 @@ const Card = ({ name, url, isFeatured, isLoading }) => {
             opacity: 0.8
           }}>Open in new tab</div>
         </div>
+
+        {/* Like Button */}
+        <button
+          className="like-btn"
+          aria-label={isLiked ? `Unlike ${name}` : `Like ${name}`}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            onToggleLike(name);
+          }}
+        >
+          <i
+            className={`bi ${isLiked ? 'bi-heart-fill' : 'bi-heart'}`}
+            style={{ color: isLiked ? 'var(--accent-purple)' : 'var(--text-muted)', fontSize: '1.1rem' }}
+          />
+        </button>
       </div>
     </a>
   );

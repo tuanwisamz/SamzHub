@@ -1,6 +1,6 @@
 import Card from './Card';
 
-const Section = ({ title, subtitle, items, isLoading }) => {
+const Section = ({ title, subtitle, items, isLoading, onToggleLike, likedIds }) => {
   const sectionId = title.toLowerCase().replace(/\s+/g, '-');
   return (
     <section className="mb-5 py-5 border-top" id={sectionId}>
@@ -27,7 +27,7 @@ const Section = ({ title, subtitle, items, isLoading }) => {
           
           return (
             <div key={index} className={colClass}>
-              <Card name={item.name} url={item.url} isFeatured={item.isFeatured} isLoading={isLoading} />
+              <Card name={item.name} url={item.url} isFeatured={item.isFeatured} isLoading={isLoading} isLiked={likedIds?.has(item.name) ?? false} onToggleLike={onToggleLike} />
             </div>
           );
         })}
